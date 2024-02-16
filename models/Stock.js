@@ -2,13 +2,13 @@ const { model, Schema } = require('mongoose')
 
 
 const stockSchema = new Schema ({
-    name: { required: true, type: String },
-    symbol: { required: true, type: String },
-    lastPrice: { required: true, type: Number },
-    change: { required: true, type: Number },
-    high: { required: true, type: Number },
-    low: { required: true, type: Number },
-    open: { required: true, type: Number },
+    name: String,
+    symbol: {type: String, unique: true}, // key difference
+    lastPrice: Number,
+    change: Number,
+    high: Number,
+    low: Number,
+    open: Number
 }, {
     timestamps: true
 })

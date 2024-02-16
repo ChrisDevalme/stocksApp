@@ -1,18 +1,12 @@
 const express = require('express')
 const router = express.Router()
-const stockCrtl = require('../../controllers/api/stockCrtl')
+const stockCtrl = require('../../controllers/api/stockCtrl')
 
 // Index incomplete
-router.get('/', stockCrtl.indexNotComplete, stockCrtl.jsonStocks)
-// Index complete
-router.get('/completed', stockCrtl.indexComplete, stockCrtl.jsonStocks)
-// Delete
-router.delete('/:id', stockCrtl.destroy, stockCrtl.jsonStock)
-// Update
-router.put('/:id', stockCrtl.update, stockCrtl.jsonStock)
+router.get('/', stockCtrl.index, stockCtrl.jsonStocks)
 // Create
-router.post('/', stockCrtl.create, stockCrtl.jsonStock)
+router.post('/', stockCtrl.create, stockCtrl.jsonStock)
 // Show
-router.get('/:id', stockCrtl.show, stockCrtl.jsonStock)
+router.get('/:symbol', stockCtrl.show, stockCtrl.jsonStock)
 
 module.exports = router
